@@ -1,5 +1,5 @@
 To Use:
-1. make a database by the name of a_database</l>
+1. make a database by the name of a_database
 2. import the users.sql in a_database
 
 Note:
