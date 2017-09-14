@@ -1,35 +1,4 @@
 <?php
-	/*session_start();
-    $db = mysqli_connect('localhost', 'root', '', 'a_database');
-    if (isset($_POST['registerBtn'])) {
-    	session_start();
-        $firstname = mysqli_real_escape_string($_POST['firstname']);
-        $secondname = mysqli_real_escape_string($_POST['secondname']);
-        $username = mysqli_real_escape_string($_POST['username']);
-        $password = mysqli_real_escape_string($_POST['password']);
-        $cpassword = mysqli_real_escape_string($_POST['cpassword']);
-
-        if ($password == $cpassword) {
-        	// create user
-        	$password = md5($password);
-        	// hash password for security
-        	$sql = "INSERT INTO users (firstname, secondname, username, password) VALUES ('$firstname', '$secondname', '$username', '$password')";
-        	//$sql = "INSERT INTO users(username, password, firstname, secondname) VALUES('$username', '$password', '$firstname', '$secondname')";
-        	//mysqli_query($db, $sql);
-        	if(mysqli_query($db, $sql)){
-		        echo "Records added successfully.";
-		    } else{
-		        echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
-		    }
-        	$_SESSION['message'] = "Registration successful";
-        	$_SESSION['username'] = $username;
-        	header('location: insert.php'); 
-        }else{
-        	// passwords dont match
-        	$_SESSION['message'] = "The two passwords don't match";
-        }
-    }*/
-
 
 ?>
 
