@@ -15,9 +15,6 @@
 		$data[] = $row;
 	}
 
-	//$result->close();
-	//$db->close();
-	//mysqli_close($result);
 	mysqli_close($db);
 
 	print json_encode($data);
