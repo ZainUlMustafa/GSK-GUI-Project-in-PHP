@@ -1,54 +1,24 @@
 <?php 
 
-	$db = mysqli_connect("localhost", "root", "", "a_database");
-	if($db === false){
-        die("ERROR: Could not connect. " . mysqli_connect_error());
-    }
-
-	$query = 'SELECT id, username, password, firstname, secondname FROM users';
-	$response = mysqli_query($db, $query);
-
-	// escape user inputs for security
-	$user_name = mysqli_real_escape_string($db, $_REQUEST['username']);
-	$pass_word = mysqli_real_escape_string($db, $_REQUEST['password']);
-
 	session_start();
-	$check = 0;
 
-	if($response){
-		while($row = mysqli_fetch_array($response)){
-			if(($row['username'] == $user_name)&&($row['password'] == $pass_word)){
-				$check = 1;
-
-				/*echo '<p>ID: ' . $row['id'] . '</p>' .
-				'<p>Username: ' . $row['username'] . '</p>' .
-				'<p>Fisrt Name: ' . $row['firstname'] . '</p>' .
-				'<p>Second Name: ' . $row['secondname'] . '</p>';
-
-				echo 'Login successful';*/
-				$_SESSION['message'] = 'Login successful';
-				$_SESSION['firstname'] = $row['firstname'];
-			}
-		}
-		if($check == 0){
-			$_SESSION['message'] = 'Login unsuccessful';
-			$_SESSION['firstname'] = 'please try logging in again';
-			if(session_destroy()) {
-		    	header("Location: login.php");
-		   	}
-		}
+	if($_SESSION['status']!="Active")
+	{
+    	header("location: login.php");	
 	}
-	else{
-		echo 'could not issue database query </br>';
-		echo mysqli_error($db);
-	}
-	mysqli_close($db);
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Home Page</title>
+    <script type="text/javascript" src="js/Chart.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/fa.js"></script>
+
+	<link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/dropdown.css">
 </head>
@@ -60,19 +30,49 @@
 </div>
 
 <div class='borderCenterDIV' align='center'>
-<h4><?php echo $_SESSION['message']?></h4>
+<h4><?php echo $_SESSION['message']?><i class="fa fa-check" aria-hidden="true"></i></h4>
+<hr>
 <h4>Hello, <?php echo $_SESSION['firstname']?></h4>
+<hr>
+<h4><?php echo $_SESSION['username']?>'s Dashboard</h4>
 
-<p>Select the menu by clicking the Menu button:</p>
+<p>Select the graph type by clicking the Menu button:</p>
 
 <div class="dropdown">
 <button onclick="myFunction()" class="dropbtn">Menu</button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="#">Option 1</a>
-    <a href="#">Option 2</a>
-    <a href="#">Option 3</a>
+    <a href="#myChart1" id="op1">Line Chart</a>
+    <a href="#myChart2" id="op2">Bar Chart</a>
+    <a href="#myChart3" id="op3">Doughnut Chart</a>
   </div>
 </div>
+
+<div class='container'>
+	<canvas id="myChart1"></canvas>
+	<canvas id="myChart2"></canvas>
+	<canvas id="myChart3"></canvas>
+</div>
+
+<!-- Some in code scripts -->
+<script>
+	$(document).ready(function(){
+	    $("#op1").click(function(){
+	        $("#myChart1").show();
+	        $("#myChart2").hide();
+	        $("#myChart3").hide();
+	    });
+	    $("#op2").click(function(){
+	        $("#myChart2").show();
+	        $("#myChart1").hide();
+	        $("#myChart3").hide();
+	    });
+	    $("#op3").click(function(){
+	        $("#myChart3").show();
+	        $("#myChart1").hide();
+	        $("#myChart2").hide();
+	    });
+	});
+</script>
 
 <script>
 /* When the user clicks on the button, 

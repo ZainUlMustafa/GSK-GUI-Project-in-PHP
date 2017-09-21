@@ -12,7 +12,7 @@ a{
 	height: 40px;
 	margin-left: 20px;
 	margin-right: -120px;
-	margin-top: -10px;
+	margin-top: 0px;
 }
 
 .header{
@@ -28,6 +28,12 @@ a{
 
 .logout{
 	font-size: 12px;
+	color: white;
+}
+
+.logout:hover{
+	color: #F45E01;
+	text-decoration: none;
 }
 
 form{
@@ -62,11 +68,20 @@ td{
 }
 
 .borderCenterDIV{
-	width: 40%;
+	width: 70%;
 	padding: 30px;
 	border: 1px solid #cbcbcb;
 	margin: 50px auto;
 	font-family: Segoe UI;
+}
+
+.regLog{
+	color: white;
+}
+
+.regLog:hover{
+	color: #F45E01;
+	text-decoration: none;
 }
 
 .submitBTN{
@@ -80,4 +95,12 @@ td{
 
 .submitBTN:hover, .submitBTN:focus {
     background-color: #051f30;
+}
+
+.fp{
+	color: #0051B3;
+}
+
+.fp:hover{
+	color: #0034B3;
 }
