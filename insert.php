@@ -34,14 +34,6 @@
     }
 
 
-	/*$sql = "INSERT INTO users (firstname, secondname, username, password) VALUES ('$first_name', '$second_name', '$user_name', '$pass_word')";
-
-    if(mysqli_query($db, $sql)){
-        echo "Records added successfully.";
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
-    }*/
-
     mysqli_close($db);
 
 ?>
