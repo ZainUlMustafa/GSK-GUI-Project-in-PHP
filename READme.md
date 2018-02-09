@@ -2,9 +2,6 @@ To Use:
 1. make a database by the name of a_database
 2. import the users.sql in a_database
 
-Note:
-This project is under-constructions and when complete, I will declare it.
-
 Update 21 September 2017:
 Login form and registration form are recoded and redesigned now with Bootstrap and custom CSS styles. Various checks are performed to ensure no reload to homepage if a user has logout. Added visualization using Chart.js to plot data from database onto the graph.
 
